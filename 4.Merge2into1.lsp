@@ -1,0 +1,15 @@
+(defun mergesort (list1 list2 list3)
+(if(and (null list1) (null list2)) list3
+                                   (if(and (null list1) (not(null list2))) (mergesort list1 (cdr list2) (append list3 (list (car list2))))
+                                                                           (if(and (not(null list1)) (null list2)) (mergesort (cdr list1) list2 (append list3 (list (car list1))))
+                                                                                                                   (if(< (car list1) (car list2)) (mergesort (cdr list1) list2 (append list3 (list (car list1))))
+                                                                                                                                                  (mergesort list1 (cdr list2) (append list3 (list (car list2))))
+                                   )
+                                                                           )
+                                                                                                                    )
+)
+)
+
+(princ "4.One list from two sorted:")
+(princ (mergesort '(1 3 6 9 10) '( 5 7 8) '()))
+(terpri)
